@@ -24,6 +24,9 @@ use App\Http\Controllers\Main\User\ProfileController;
 Route::middleware('guest')->prefix('/admin')->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'process_login']);
+
+    // Route For Sending Scoring
+    Route::get('/login', [AuthController::class, 'login']);
 });
 
 Route::middleware('auth')->group(function () {
@@ -31,10 +34,8 @@ Route::middleware('auth')->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'main']);
 
-    
     // Admin
     Route::prefix('/admin')->group(function () {
-
         // Profile
         Route::prefix('/profile')->group(function () {
             Route::get('/', [ProfileController::class, 'index']);

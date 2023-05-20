@@ -26,6 +26,10 @@ body {
     left: 0;
 }
 
+#menu-btn {
+    display: none;
+}
+
 #menu .logo {
     display: flex;
     align-items: center;
@@ -300,6 +304,11 @@ tbody tr td {
         left: -270px;
         transition: 0.3s ease;
     }
+
+    #menu-btn {
+        display: inline;
+    }
+
     #menu.active {
         left: 0px;
     }
@@ -338,9 +347,27 @@ tbody tr td {
 
 /* Responsive phone */
 @media (max-width: 477px) {
+    #menu {
+        width: 180px;
+        position: fixed;
+        left: -180px;
+        transition: 0.3s ease;
+    }
+
+    #menu.active ~ #interface {
+        width: calc(100% - 180px);
+        margin-left: 180px;
+        transition: 0.3s ease;
+    }
+
+    #menu.active ~ #interface .navigation {
+        width: calc(100% - 180px);
+    }
+
     #interface .navigation {
         padding: 15px;
     }
+
     #interface .navigation .search input {
         width: 150px;
     }

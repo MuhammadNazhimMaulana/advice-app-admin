@@ -9,7 +9,6 @@
   </div>
 
   <div class="profile">
-    <i class="far fa-bell"></i>
     <a href="/admin/profile"><img src="{{ asset('Images/Bonevian.png') }}"></a>
     @auth
       <form action="/admin/logout" method="POST">
