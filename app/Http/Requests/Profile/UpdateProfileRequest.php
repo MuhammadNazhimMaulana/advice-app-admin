@@ -26,7 +26,7 @@ class UpdateProfileRequest extends FormRequest
         return [
             'username' => 'required|min:3|max:255',
             'email' => 'required|email',
-            'password' => 'confirmed',
+            'password' => 'nullable|confirmed',
         ];
     }
 }
