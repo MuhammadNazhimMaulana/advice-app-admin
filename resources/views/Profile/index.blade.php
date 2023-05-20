@@ -4,13 +4,26 @@
 <div class="values">
 
     <div class="board">
+        
+        {{-- Update Profile Done --}}
+        @if(session()->has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+        @endif
+
         <div class="card mx-auto">
             <div class="card-body">
                 <h5 class="card-title text-center">{{ $user->name }}</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
                 {{-- Update Form --}}
-                <form action="/user/profile" method="post" id="update_form">
+                <form action="/admin/profile" method="post" id="update_form">
+                    @method('put')
+                    @csrf
+
+                    {{-- Hidden --}}
+                    <input type="hidden" name="user_id" value="{{ $user->id }}">
 
                     {{-- Username --}}
                     <div class="mb-3">
@@ -33,11 +46,11 @@
                     {{-- Password Confirmation --}}
                     <div class="mb-3 d-none" id="confirm_pass">
                         <label for="password_confirmation " class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password_confirmation " name="password_confirmation ">
+                        <input type="password" class="form-control" id="password_confirmation " name="password_confirmation">
                     </div>
 
                     <button class="btn btn-primary d-none" type="submit" id="button-update">
-                        Submit
+                        Update Profile
                     </button>
                 </form>
             </div>

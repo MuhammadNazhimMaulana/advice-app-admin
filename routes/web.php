@@ -34,10 +34,11 @@ Route::middleware('auth')->group(function () {
     
     // Admin
     Route::prefix('/admin')->group(function () {
-        
+
         // Profile
         Route::prefix('/profile')->group(function () {
             Route::get('/', [ProfileController::class, 'index']);
+            Route::put('/', [ProfileController::class, 'update']);
         });
 
         // Logout
