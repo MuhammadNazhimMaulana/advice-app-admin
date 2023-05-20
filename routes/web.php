@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Main\DashboardController;
+use App\Http\Controllers\Main\User\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +31,16 @@ Route::middleware('auth')->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'main']);
 
-    // Logout
+    
+    // Admin
     Route::prefix('/admin')->group(function () {
+        
+        // Profile
+        Route::prefix('/profile')->group(function () {
+            Route::get('/', [ProfileController::class, 'index']);
+        });
+
+        // Logout
         Route::post('/logout', [AuthController::class, 'logout']);
     }); 
 });
