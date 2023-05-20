@@ -1,7 +1,7 @@
 <section id="menu">
     <div class="logo">
         <img src="{{ asset('Images/Bonevian.png') }}">
-        <h2>Book App</h2>
+        <h2>{{__('Aplikasi Penilaian Kepuasan Pelanggan') }}</h2>
     </div>
 
     <div class="items">
