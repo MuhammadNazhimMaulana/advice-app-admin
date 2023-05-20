@@ -13,7 +13,7 @@ $(document).ready(function(){
     // Button Update
     let button = '#button-update';
 
-    $(form).on('change', function(event){
+    $(form).on('input', function(event){
 
         // Making Sure There is a change
         if($(name).attr('data-initial') != $(name).val() || $(email).attr('data-initial') != $(email).val() || $(password).val() != '')

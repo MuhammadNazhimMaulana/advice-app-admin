@@ -15,7 +15,6 @@
         <div class="card mx-auto">
             <div class="card-body">
                 <h5 class="card-title text-center">{{ $user->name }}</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
                 {{-- Update Form --}}
                 <form action="/admin/profile" method="post" id="update_form">
