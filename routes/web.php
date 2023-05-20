@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Main\DashboardController;
-use App\Http\Controllers\Main\User\ProfileController;
+use App\Http\Controllers\Main\User\{ProfileController, EmployeeController};
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +40,11 @@ Route::middleware('auth')->group(function () {
         Route::prefix('/profile')->group(function () {
             Route::get('/', [ProfileController::class, 'index']);
             Route::put('/', [ProfileController::class, 'update']);
+        });
+
+        // Employee
+        Route::prefix('/employee')->group(function () {
+            Route::get('/', [EmployeeController::class, 'index']);
         });
 
         // Logout
