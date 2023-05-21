@@ -34,7 +34,7 @@ class EmployeeController extends Controller
         $data = [
             'employee' => $employee,
             'employee_eval' => $eval,
-            'title' => 'Employee',
+            'title' => '',
         ];
 
         return view('Employee/detail', $data);   
