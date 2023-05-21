@@ -5,6 +5,9 @@
 
     <div style="margin-top: -20px;" class="board">
 
+        {{-- Button Back --}}
+        <a class="btn btn-primary" href="/admin/employee">Back to List</a>
+
         {{-- Title --}}
         <h1 class="text-center mb-4">{{ $employee->name }}</h1>
 
