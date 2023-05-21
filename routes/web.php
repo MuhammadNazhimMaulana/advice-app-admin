@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
         // Employee
         Route::prefix('/employee')->group(function () {
             Route::get('/', [EmployeeController::class, 'index']);
+            Route::get('/detail/{id}', [EmployeeController::class, 'detail']);
         });
 
         // Logout
