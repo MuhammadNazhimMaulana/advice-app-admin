@@ -29,11 +29,24 @@ class EmployeeController extends Controller
         $employee = Employee::find($id);
 
         // Employee Evaluation
-        $eval = EmployeeEvaluation::where('employee_id', $employee->id)->get();
+        $evals = EmployeeEvaluation::where('employee_id', $employee->id)->get()->groupBy('score');
+
+        // Preparing List
+        $labels = [];
+        $total_score = [];
+        foreach($evals as $eval){
+            
+            // Label
+            array_push($labels, $eval[0]->score);
+
+            // How many in that Label
+            array_push($total_score, count($eval));
+        }
 
         $data = [
             'employee' => $employee,
-            'employee_eval' => $eval,
+            'labels' => $labels,
+            'total_score' => $total_score,
             'title' => '',
         ];
 
