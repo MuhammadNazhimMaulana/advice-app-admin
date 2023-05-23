@@ -26,7 +26,7 @@
                     <td>{{ $employee->email }}</td>
                     <td>
                         <a href="/admin/employee/detail/{{ $employee->id }}"><button type="button" class="btn btn-success">Detail</button></a>
-                        <a href="/admin/employee/warn/{{ $employee->id }}"><button type="button" class="btn btn-warning text-white">Kirim Peringatan</button></a>
+                        <button type="button" class="btn btn-warning text-white"  data-bs-toggle="modal" data-bs-target="#warnModal">Kirim Peringatan</button>
                     </td>
                 </tr>
             @endforeach
@@ -34,5 +34,8 @@
           </table>
     </div>
 </div>
+
+{{-- Modals --}}
+@include('Employee.modals.warn')
 
 @endsection
