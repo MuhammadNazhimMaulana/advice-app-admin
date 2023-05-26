@@ -6,10 +6,12 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="/admin/employee/warn" method="post">
+          <form action="/admin/employee/warn" method="post" id="warn-form">
             @csrf
+                {{-- Hidden --}}
+                <input type="hidden" name="id_employee" id="id_employee">
                 <div class="form-floating">
-                    <textarea class="form-control" name="warn_message" placeholder="Silakan masukkan pesan tambahan" id="pesan" style="height: 100px"></textarea>
+                    <textarea class="form-control" name="warn_message" placeholder="Silakan masukkan pesan tambahan" id="pesan" style="height: 100px" required></textarea>
                     <label for="pesan">Pesan</label>
                 </div>
               </div>

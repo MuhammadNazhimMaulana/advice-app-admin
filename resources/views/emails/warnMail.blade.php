@@ -1,8 +1,8 @@
 @component('mail::message')
-# {{ __('Kepada') }} #{{ $details['title'] }}
+# {{ __('Kepada') }} {{ $details['employee']->name }}
 
 @component('mail::panel')
-    This is a panel
+    {{ $details['body'] }}
 @endcomponent
 
 {{ __('Terima Kasih') }},<br>
