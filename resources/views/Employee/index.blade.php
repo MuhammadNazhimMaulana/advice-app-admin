@@ -32,8 +32,8 @@
                     <td>{{ $employee->name }}</td>
                     <td>{{ $employee->email }}</td>
                     <td>
-                        <a href="/admin/employee/detail/{{ $employee->id }}"><button type="button" class="btn btn-success">Detail</button></a>
-                        <button type="button" class="btn btn-warning text-white button_warn" data-id="{{ $employee->id }}" data-bs-toggle="modal" data-bs-target="#warnModal">Kirim Peringatan</button>
+                        <a href="/admin/employee/detail/{{ $employee->id }}"><button type="button" class="mt-2 btn btn-success"><i class="fas fa-info"></i></button></a>
+                        <button type="button" class="btn btn-warning text-white button_warn mt-2" data-id="{{ $employee->id }}" data-bs-toggle="modal" data-bs-target="#warnModal"><i class="fas fa-exclamation-triangle"></i></button>
                     </td>
                 </tr>
             @endforeach
