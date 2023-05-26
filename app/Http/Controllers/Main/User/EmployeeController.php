@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Main\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\Employee\WarnRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\{Employee, EmployeeEvaluation};
 use App\Mail\WarningMail;
@@ -55,22 +56,20 @@ class EmployeeController extends Controller
         return view('Employee/detail', $data);   
     }
 
-    public function warn()
+    public function warn(WarnRequest $request)
     {
-
         // Get All Employee
-        $employees = Employee::get();
+        $employee = Employee::find($request->id_employee);
 
         $data = [
             'title' => 'Mail from Pos Indonesia',
-            'body' => 'This is for testing email using smtp',
-            'user' => Auth::user(),
-            'employees' => $employees,
-            'title' => 'Employee',
+            'body' => $request->warn_message,
+            'employee' => $employee,
         ];
 
         Mail::to('nazhimmaulana13@gmail.com')->send(new WarningMail($data));
 
-        return view('Employee/index', $data);   
+        // Redirect
+        return redirect('/admin/employee')->with('success', 'Warning Sent Succesfully');
     }
 }

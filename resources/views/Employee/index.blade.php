@@ -5,6 +5,13 @@
 
     <div class="board">
 
+        {{-- Sent Warn Done --}}
+        @if(session()->has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+        @endif
+
         {{-- Title --}}
         <h1 class="text-center mb-4">Daftar Nama Petugas Loket</h1>
 
@@ -26,7 +33,7 @@
                     <td>{{ $employee->email }}</td>
                     <td>
                         <a href="/admin/employee/detail/{{ $employee->id }}"><button type="button" class="btn btn-success">Detail</button></a>
-                        <button type="button" class="btn btn-warning text-white"  data-bs-toggle="modal" data-bs-target="#warnModal">Kirim Peringatan</button>
+                        <button type="button" class="btn btn-warning text-white button_warn" data-id="{{ $employee->id }}" data-bs-toggle="modal" data-bs-target="#warnModal">Kirim Peringatan</button>
                     </td>
                 </tr>
             @endforeach
@@ -37,5 +44,9 @@
 
 {{-- Modals --}}
 @include('Employee.modals.warn')
+
+@section('script')
+    <script src="{{ asset('/JS/employee.js') }}"></script>
+@endsection
 
 @endsection
