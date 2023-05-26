@@ -29,7 +29,7 @@ class WarningMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Mail PT Pos Indonesia')
-                    ->view('emails.warnMail');
+        return $this->markdown('emails.warnMail')
+            ->subject('Mail PT Pos Indonesia');
     }
 }
