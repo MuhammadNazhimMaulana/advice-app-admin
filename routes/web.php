@@ -32,7 +32,7 @@ Route::middleware('guest')->prefix('/admin')->group(function () {
 Route::middleware('auth')->group(function () {
 
     // Dashboard
-    Route::get('/dashboard', [DashboardController::class, 'main']);
+    Route::get('/', [DashboardController::class, 'main']);
 
     // Admin
     Route::prefix('/admin')->group(function () {
