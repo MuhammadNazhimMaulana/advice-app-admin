@@ -34,7 +34,7 @@
                     <td>
                         <a href="/admin/employee/detail/{{ $employee->id }}"><button type="button" class="mt-2 btn btn-success"><i class="fas fa-info"></i></button></a>
                         <button type="button" class="btn btn-warning text-white button_warn mt-2" data-id="{{ $employee->id }}" data-bs-toggle="modal" data-bs-target="#warnModal"><i class="fas fa-exclamation-triangle"></i></button>
-                        <button type="button" class="btn btn-primary button_qr mt-2" data-id="{{ $employee->id }}" data-bs-toggle="modal" data-bs-target="#qrModal"><i class="fas fa-exclamation-triangle"></i></button>
+                        <button type="button" class="btn btn-primary button_qr mt-2" data-id="{{ $employee->id }}" data-bs-toggle="modal" data-bs-target="#qrModal"><i class="fas fa-qrcode"></i></button>
                     </td>
                 </tr>
             @endforeach
