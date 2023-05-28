@@ -7,6 +7,11 @@
         </div>
         <div class="modal-body text-center">
           <img src="data:image/png;base64,{{DNS2D::getBarcodePNG('https://advice-app-customer-git-master-muhammadnazhimmaulana.vercel.app/', 'QRCODE', 5, 5)}}" alt="barcode" />
+          
+          {{-- Button --}}
+          <div class="mt-3">
+            <a href="/admin/employee/pdf/id_number"><button class="btn btn-primary">PDF</button></a>
+          </div>
       </div>
     </div>
   </div>
