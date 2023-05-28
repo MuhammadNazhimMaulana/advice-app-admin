@@ -41,15 +41,20 @@
         display: table;
         }
 
+        .center {
+            text-align: center;
+        }
     </style>
 
     <title>{{ $title }}</title>
 </head>
 
 <body>
-    <div style="font-size: 64px; color: '#dddddd'; text-align: center; margin-bottom: 50px;">QR Loket</div>
+    <div style="font-size: 64px; color: '#dddddd'; text-align: center; margin-bottom: 90px;">{{ _('QR Loket') }}</div>
 
-
+    <div class="center">
+        <img src="data:image/png;base64,{{DNS2D::getBarcodePNG('https://advice-app-customer-git-master-muhammadnazhimmaulana.vercel.app/form'.$employee->id, 'QRCODE', 7, 7)}}" alt="barcode" />
+    </div>
 </body>
 
 </html>
