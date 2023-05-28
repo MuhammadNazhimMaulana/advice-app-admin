@@ -26,7 +26,7 @@ Route::middleware('guest')->prefix('/admin')->group(function () {
     Route::post('/login', [AuthController::class, 'process_login']);
 
     // Route For Sending Scoring
-    Route::get('/login', [AuthController::class, 'login']);
+    // Route::get('/login', [AuthController::class, 'login']);
 });
 
 Route::middleware('auth')->group(function () {

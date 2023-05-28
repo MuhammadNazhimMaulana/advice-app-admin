@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Main\User\EmployeeController;
+use App\Http\Controllers\Main\User\EmployeeEvaluationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +17,9 @@ use App\Http\Controllers\Main\User\EmployeeController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware('guest')->group(function () {
+    // Route For Sending Scoring
+    Route::post('/form-submit', [EmployeeEvaluationController::class, 'store']);
 });
