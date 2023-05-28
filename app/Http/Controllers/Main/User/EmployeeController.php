@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\{Employee, EmployeeEvaluation};
 use App\Mail\WarningMail;
 use Illuminate\Support\Facades\Mail;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class EmployeeController extends Controller
 {
@@ -71,5 +72,18 @@ class EmployeeController extends Controller
 
         // Redirect
         return redirect('/admin/employee')->with('success', 'Warning Sent Succesfully');
+    }
+
+    public function previewQr(int $id)
+    {
+        // Finding employee
+        $employee = Employee::find($id);
+
+        $pdf = Pdf::loadView('Employee.pdfQr', [
+            'employee' => $employee
+        ])->setpaper('legal', 'portrait');
+
+        // Showing The pdf
+        return $pdf->stream('List Manifest.pdf');
     }
 }
