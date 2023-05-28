@@ -80,8 +80,9 @@ class EmployeeController extends Controller
         $employee = Employee::find($id);
 
         $pdf = Pdf::loadView('Employee.pdfQr', [
-            'employee' => $employee
-        ])->setpaper('legal', 'portrait');
+            'employee' => $employee,
+            'title' => 'QR ' . $employee->name,
+        ])->setpaper('A4', 'portrait');
 
         // Showing The pdf
         return $pdf->stream('List Manifest.pdf');
