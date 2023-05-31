@@ -4,7 +4,7 @@ namespace App\Observers;
 
 use App\Models\{EmployeeEvaluation, Employee};
 use Illuminate\Support\Facades\DB;
-use App\Mail\WarningMail;
+use App\Mail\LowScoreMail;
 use Illuminate\Support\Facades\Mail;
 use Throwable;
 
@@ -29,12 +29,13 @@ class EmployeeEvaluationObserver
 
                 $data = [
                     'title' => 'Mail from Pos Indonesia',
-                    'body' => 'Hati-Hati',
+                    'score' => $employeeEvaluation->score,
+                    'message' => $employeeEvaluation->advice,
                     'employee' => $employee,
                 ];
 
                 // Send Email
-                Mail::to('nazhimmaulana13@gmail.com')->send(new WarningMail($data));
+                Mail::to('nazhimmaulana13@gmail.com')->send(new LowScoreMail($data));
             }
 
             
