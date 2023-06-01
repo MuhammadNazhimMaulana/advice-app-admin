@@ -9,9 +9,9 @@ class EmployeeEvaluation extends Model
 {
     use HasFactory;
 
-    const SCORE_VERY_GOOD = 5;
-    const SCORE_GOOD = 4;
-    const SCORE_NOT_BAD = 3;
-    const SCORE_BAD = 2;
-    const SCORE_REALLY_BAD = 1;
+    const SCORE_VERY_GOOD = "recommended";
+    const SCORE_GOOD = 'memuaskan';
+    const SCORE_NOT_BAD = 'sesuai janji';
+    const SCORE_BAD = 'tidak puas';
+    const SCORE_REALLY_BAD = 'kriminal';
 }
