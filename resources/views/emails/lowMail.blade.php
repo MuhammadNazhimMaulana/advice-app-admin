@@ -1,7 +1,7 @@
 @component('mail::message')
 # {{ __('Kepada') }} {{ $details['employee']->name }}
 
-{{ __('Anda mendapat sebuah penilaian dengan skor') }} {{ $details['score'] }},<br>
+{{ __('Anda mendapat sebuah penilaian dengan skor') }} {{ $details['score'] }} {{ __(', berikut masukan/kritik dari pelanggan tersebut:') }}<br>
 
 @component('mail::panel')
     {{ $details['message'] }}
