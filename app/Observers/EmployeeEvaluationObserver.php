@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Mail\LowScoreMail;
 use Illuminate\Support\Facades\Mail;
 use Throwable;
-
+use Illuminate\Support\Facades\Log;
 class EmployeeEvaluationObserver
 {
     /**
@@ -22,7 +22,7 @@ class EmployeeEvaluationObserver
         try {
 
             // Check inserted data
-            if ($employeeEvaluation->score < EmployeeEvaluation::SCORE_NOT_BAD)
+            if ($employeeEvaluation->score == EmployeeEvaluation::SCORE_BAD || $employeeEvaluation->score == EmployeeEvaluation::SCORE_REALLY_BAD)
             {
                 // Finding Employee
                 $employee = Employee::find($employeeEvaluation->employee_id);
@@ -42,6 +42,7 @@ class EmployeeEvaluationObserver
             DB::commit();
         } catch (Throwable $e) {
             DB::rollback();
+            Log::info($e);
         }
     }
 }

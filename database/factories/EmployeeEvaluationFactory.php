@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\EmployeeEvaluation;
-
 class EmployeeEvaluationFactory extends Factory
 {
     /**
@@ -23,7 +22,7 @@ class EmployeeEvaluationFactory extends Factory
     {
         return [
             'employee_id' => $this->faker->numberBetween(1, 5),
-            'score' => $this->faker->numberBetween(1, 5),
+            'score' => $this->faker->randomElement([EmployeeEvaluation::SCORE_VERY_GOOD, EmployeeEvaluation::SCORE_GOOD, EmployeeEvaluation::SCORE_NOT_BAD, EmployeeEvaluation::SCORE_BAD, EmployeeEvaluation::SCORE_REALLY_BAD]),
         ];
     }
 }

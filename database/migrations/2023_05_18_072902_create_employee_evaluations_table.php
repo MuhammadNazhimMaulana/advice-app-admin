@@ -16,7 +16,7 @@ class CreateEmployeeEvaluationsTable extends Migration
         Schema::create('employee_evaluations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employee_id');
-            $table->integer('score');
+            $table->string('score');
             $table->longText('advice')->nullable();
             $table->timestamps();
             
