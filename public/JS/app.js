@@ -2063,6 +2063,8 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _employee_chart_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./employee_chart.js */ "./resources/js/employee_chart.js");
+/* harmony import */ var _dashboard_chart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard_chart.js */ "./resources/js/dashboard_chart.js");
+
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
@@ -2101,6 +2103,34 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/dashboard_chart.js":
+/*!*****************************************!*\
+  !*** ./resources/js/dashboard_chart.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var chart_js_auto__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! chart.js/auto */ "./node_modules/chart.js/auto/auto.js");
+
+var data = {
+  labels: labels,
+  datasets: [{
+    label: 'Total',
+    backgroundColor: ['rgb(255, 99, 132)', 'rgb(0, 139, 139)', 'rgb(30, 144, 255)', 'rgb(220, 20, 60)', 'rgb(255, 228, 225)'],
+    borderColor: ['rgb(255, 99, 132)', 'rgb(0, 139, 139)', 'rgb(30, 144, 255)', 'rgb(220, 20, 60)', 'rgb(255, 228, 225)'],
+    data: trans
+  }]
+};
+var config = {
+  type: 'pie',
+  data: data,
+  options: {}
+};
+new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById('thisMonthEvaluation'), config);
 
 /***/ }),
 
