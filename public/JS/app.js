@@ -2128,7 +2128,14 @@ var data = {
 var config = {
   type: 'pie',
   data: data,
-  options: {}
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Penilaian Bulan Ini'
+      }
+    }
+  }
 };
 if (document.getElementById('thisMonthEvaluation') != null) {
   new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById('thisMonthEvaluation'), config);
@@ -2147,7 +2154,14 @@ var data_yearly = {
 var config_yearly = {
   type: 'pie',
   data: data_yearly,
-  options: {}
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Penilaian Tahun Ini'
+      }
+    }
+  }
 };
 if (document.getElementById('thisYearEvaluation') != null) {
   new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById('thisYearEvaluation'), config_yearly);

@@ -27,7 +27,14 @@ const data = {
 const config = {
     type: 'pie',
     data: data,
-    options: {}
+    options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Penilaian Bulan Ini'
+            }
+        }
+    }
 };
 
 if(document.getElementById('thisMonthEvaluation') != null){
@@ -65,7 +72,14 @@ const data_yearly = {
 const config_yearly = {
     type: 'pie',
     data: data_yearly,
-    options: {}
+    options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Penilaian Tahun Ini'
+            }
+        }
+    }
 };
 
 if(document.getElementById('thisYearEvaluation') != null){
