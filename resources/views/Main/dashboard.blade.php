@@ -20,6 +20,7 @@
 {{-- Charts --}}
 @section('script')
     <script>
+        // First Chart
         const labels = @json($labels_this_month);
         const trans = @json($total_score_this_month);
     </script>
