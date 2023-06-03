@@ -2130,7 +2130,28 @@ var config = {
   data: data,
   options: {}
 };
-new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById('thisMonthEvaluation'), config);
+if (document.getElementById('thisMonthEvaluation') != null) {
+  new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById('thisMonthEvaluation'), config);
+}
+
+// Yearly
+var data_yearly = {
+  labels: labels_yearly,
+  datasets: [{
+    label: 'Total',
+    backgroundColor: ['rgb(255, 99, 132)', 'rgb(0, 139, 139)', 'rgb(30, 144, 255)', 'rgb(220, 20, 60)', 'rgb(255, 228, 225)'],
+    borderColor: ['rgb(255, 99, 132)', 'rgb(0, 139, 139)', 'rgb(30, 144, 255)', 'rgb(220, 20, 60)', 'rgb(255, 228, 225)'],
+    data: trans_yearly
+  }]
+};
+var config_yearly = {
+  type: 'pie',
+  data: data_yearly,
+  options: {}
+};
+if (document.getElementById('thisYearEvaluation') != null) {
+  new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById('thisYearEvaluation'), config_yearly);
+}
 
 /***/ }),
 
@@ -2158,7 +2179,9 @@ var config = {
   data: data,
   options: {}
 };
-new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById('transactionChart'), config);
+if (document.getElementById('transactionChart') != null) {
+  new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById('transactionChart'), config);
+}
 
 /***/ }),
 

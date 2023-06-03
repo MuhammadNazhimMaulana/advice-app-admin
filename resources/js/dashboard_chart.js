@@ -30,7 +30,47 @@ const config = {
     options: {}
 };
 
-new Chart(
-    document.getElementById('thisMonthEvaluation'),
-    config
-);
+if(document.getElementById('thisMonthEvaluation') != null){
+    new Chart(
+        document.getElementById('thisMonthEvaluation'),
+        config
+    );
+}
+
+// Yearly
+const data_yearly = {
+    labels: labels_yearly,
+    datasets: [
+    {
+        label: 'Total',
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(0, 139, 139)',
+            'rgb(30, 144, 255)',
+            'rgb(220, 20, 60)',
+            'rgb(255, 228, 225)',
+        ],
+        borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(0, 139, 139)',
+            'rgb(30, 144, 255)',
+            'rgb(220, 20, 60)',
+            'rgb(255, 228, 225)',
+        ],
+        data: trans_yearly,
+    },
+]
+};
+
+const config_yearly = {
+    type: 'pie',
+    data: data_yearly,
+    options: {}
+};
+
+if(document.getElementById('thisYearEvaluation') != null){
+    new Chart(
+        document.getElementById('thisYearEvaluation'),
+        config_yearly
+    );
+}
