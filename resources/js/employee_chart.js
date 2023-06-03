@@ -30,7 +30,9 @@ const config = {
     options: {}
 };
 
-new Chart(
-    document.getElementById('transactionChart'),
-    config
-);
+if(document.getElementById('transactionChart') != null){
+    new Chart(
+        document.getElementById('transactionChart'),
+        config
+    );
+}
