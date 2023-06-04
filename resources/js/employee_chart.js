@@ -27,7 +27,14 @@ const data = {
 const config = {
     type: 'pie',
     data: data,
-    options: {}
+    options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Penilaian Detail'
+            }
+        }
+    }
 };
 
 if(document.getElementById('transactionChart') != null){
