@@ -1,0 +1,31 @@
+{
+    "recommended":[
+        {
+            "description": "Selamat karena sudah mendapatkan skor yang sangat baik, tetap pertahankan dan terus tingkatkan pelayanan"
+        }
+    ],
+
+    "memuaskan":[
+        {
+            "description": "Skor yang di dapatkan sudah bagus, tetap untuk mempertahankannya dan terus lakukan peningkatan pelayanan"
+        }
+    ],
+
+    "sesuai janji":[
+        {
+            "description": "Total skor yang di dapatkan sudah cukup bagus, tapi sebaiknya lebih perbanyak lagi peningkatan pelayanan"
+        }
+    ],
+
+    "tidak puas":[
+        {
+            "description": "Skor yang di dapatkan masih kurang bagus, sebaiknya lakukan evaluasi lagi dan segera perbaiki bagian yang masih dirasa kurang"
+        }
+    ],
+
+    "kriminal":[
+        {
+            "description": "Maaf, skor yang di dapatkan sangat kurang. Sebaiknya lakukan evaluasi dan juga perbaikan yang cukup mendalam terhadap loket ini, mulai dari perbaikan terhadap cara berbicara atau mungkin bisa lebih enjoy lagi saat berbicara dengan publik secara langsung"
+        }
+    ]
+}

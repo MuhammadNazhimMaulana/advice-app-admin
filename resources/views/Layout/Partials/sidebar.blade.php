@@ -1,6 +1,6 @@
 <section id="menu">
     <div class="logo">
-        <img src="{{ asset('Images/Bonevian.png') }}">
+        <img src="{{ asset('images/Bonevian.png') }}">
         <h2>{{__('Aplikasi Penilaian Kepuasan Pelanggan') }}</h2>
     </div>
 
