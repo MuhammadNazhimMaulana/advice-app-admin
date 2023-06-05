@@ -36,21 +36,27 @@ class EmployeeController extends Controller
         $evals = EmployeeEvaluation::where('employee_id', $employee->id)->get()->groupBy('score');
 
         // Preparing List
-        $labels = [];
-        $total_score = [];
+        $label_and_score = [];
         foreach($evals as $eval){
-            
-            // Label
-            array_push($labels, $eval[0]->score);
 
-            // How many in that Label
-            array_push($total_score, count($eval));
+            // Label and Score
+            $label_and_score[$eval[0]->score] = count($eval);
         }
+        
+        // Find Max Score
+        $max_value = max($label_and_score);
+
+        // Find Max Label
+        $max_label = array_search($max_value, $label_and_score);
+
+        // Find JSON Data
+        $informations = json_decode(file_get_contents('json/description.json'), true);
 
         $data = [
             'employee' => $employee,
-            'labels' => $labels,
-            'total_score' => $total_score,
+            'labels' => array_keys($label_and_score),
+            'total_score' => array_values($label_and_score),
+            'desc' => $informations[$max_label][0]['description'],
             'title' => '',
         ];
 

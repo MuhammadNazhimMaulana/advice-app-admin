@@ -2191,7 +2191,14 @@ var data = {
 var config = {
   type: 'pie',
   data: data,
-  options: {}
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Penilaian Detail'
+      }
+    }
+  }
 };
 if (document.getElementById('transactionChart') != null) {
   new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById('transactionChart'), config);
