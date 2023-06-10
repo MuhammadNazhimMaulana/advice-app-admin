@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
     use HasFactory;
+
+    // Inverse
+    public function evaluation()
+    {
+        return $this->hasMany(EmployeeEvaluation::class, 'employee_id');
+    }
+    
 }

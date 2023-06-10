@@ -14,4 +14,10 @@ class EmployeeEvaluation extends Model
     const SCORE_NOT_BAD = 'sesuai janji';
     const SCORE_BAD = 'tidak puas';
     const SCORE_REALLY_BAD = 'kriminal';
+
+    // Relationship
+    public function employer()
+    {
+        return $this->belongsTo(Employee::class, 'employee_id');
+    }
 }
