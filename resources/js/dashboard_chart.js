@@ -44,6 +44,8 @@ if(document.getElementById('thisMonthEvaluation') != null){
     );
 }
 
+
+if(document.getElementById('thisYearEvaluation') != null){
 // Yearly
 const data_yearly = {
     labels: labels_yearly,
@@ -82,9 +84,8 @@ const config_yearly = {
     }
 };
 
-if(document.getElementById('thisYearEvaluation') != null){
-    new Chart(
-        document.getElementById('thisYearEvaluation'),
-        config_yearly
-    );
+new Chart(
+    document.getElementById('thisYearEvaluation'),
+    config_yearly
+);
 }
