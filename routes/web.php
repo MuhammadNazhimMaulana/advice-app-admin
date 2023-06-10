@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Main\DashboardController;
-use App\Http\Controllers\Main\User\{ProfileController, EmployeeController};
+use App\Http\Controllers\Main\User\{ProfileController, EmployeeController, EmployeeEvaluationController};
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +48,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/pdf/{id}', [EmployeeController::class, 'previewQr']);
             Route::get('/detail/{id}', [EmployeeController::class, 'detail']);
             Route::post('/warn', [EmployeeController::class, 'warn']);
+        });
+
+        // Performance
+        Route::prefix('/employee-performance')->group(function () {
+            Route::get('/', [EmployeeEvaluationController::class, 'perofrmance']);
         });
 
         // Logout
