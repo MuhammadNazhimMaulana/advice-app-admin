@@ -27,13 +27,13 @@
                     {{-- Username --}}
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" data-initial="{{ $user->username }}" value="{{ $user->username }}" class="form-control" id="username" name="username" readonly>
+                        <input type="text" data-initial="{{ $user->username }}" value="{{ $user->username }}" class="form-control" id="username" name="username">
                     </div>
 
                     {{-- Email --}}
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" data-initial="{{ $user->email }}"  value="{{ $user->email }}" class="form-control" id="email" name="email">
+                        <input type="email" data-initial="{{ $user->email }}"  value="{{ $user->email }}" class="form-control" id="email" name="email" readonly>
                     </div>
 
                     {{-- Password --}}
