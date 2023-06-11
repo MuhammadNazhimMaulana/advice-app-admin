@@ -18,12 +18,32 @@
                 {{-- Chart This Month --}}
                 <div class="border border-dark p-3 rounded" style="width: 350px; margin: auto; margin-bottom: 50px;">
                     <canvas id="thisMonthEvaluation"></canvas>
+
+                {{-- Button --}}
+                <a id="download-month"
+                    download="Monthly Chart.jpg" 
+                    href=""
+                    class="btn btn-primary float-right bg-flat-color-1 d-none"
+                    title="Descargar Gráfico">
+                    <!-- Download Icon -->
+                    <i class="fa fa-download"></i>
+                 </a>
                 </div>
             </div>
             <div class="col-md-6">
                 {{-- Chart This Month --}}
                 <div class="border border-dark p-3 rounded" style="width: 350px; margin: auto; margin-bottom: 50px;">
                     <canvas id="thisYearEvaluation"></canvas>
+
+                    {{-- Button --}}
+                    <a id="download-year"
+                        download="Yearly Chart.jpg" 
+                        href=""
+                        class="btn btn-primary float-right bg-flat-color-1 d-none"
+                        title="Descargar Gráfico">
+                        <!-- Download Icon -->
+                        <i class="fa fa-download"></i>
+                    </a>
                 </div>
             </div>
         </div>
