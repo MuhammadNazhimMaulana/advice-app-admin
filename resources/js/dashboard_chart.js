@@ -24,23 +24,42 @@ const data = {
 ]
 };
 
-const config = {
-    type: 'pie',
-    data: data,
-    options: {
-        plugins: {
-            title: {
-                display: true,
-                text: 'Penilaian Bulan Ini'
+if(document.getElementById('thisMonthEvaluation') != null){
+    let monthChart = new Chart(
+        document.getElementById('thisMonthEvaluation'),
+        {
+            type: 'pie',
+            data: data,
+            options: {
+                animation: {
+                    onComplete:  () => {
+                    
+                    // Download Image 
+                    let url = $("#download-month");
+                    
+                    // Change Value
+                    url.attr("href", monthChart.toBase64Image());
+        
+                    // Show Button
+                    url.removeClass("d-none")
+                    },
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Penilaian Bulan Ini'
+                    },
+                    datalabels: {
+                        formatter: Math.round,
+                        color: 'Arial',
+                        font: {
+                            weight: 'bold',
+                            size: 16
+                        }
+                    }
+                }
             }
         }
-    }
-};
-
-if(document.getElementById('thisMonthEvaluation') != null){
-    new Chart(
-        document.getElementById('thisMonthEvaluation'),
-        config
     );
 }
 
@@ -71,21 +90,40 @@ const data_yearly = {
 ]
 };
 
-const config_yearly = {
-    type: 'pie',
-    data: data_yearly,
-    options: {
-        plugins: {
-            title: {
-                display: true,
-                text: 'Penilaian Tahun Ini'
+let yearlyChart = new Chart(
+    document.getElementById('thisYearEvaluation'),
+    {
+        type: 'pie',
+        data: data_yearly,
+        options: {
+            animation: {
+                onComplete:  () => {
+                
+                // Download Image 
+                let url = $("#download-year");
+                
+                // Change Value
+                url.attr("href", yearlyChart.toBase64Image());
+    
+                // Show Button
+                url.removeClass("d-none")
+                },
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Penilaian Tahun Ini'
+                },
+                datalabels: {
+                    formatter: Math.round,
+                    color: 'Arial',
+                    font: {
+                        weight: 'bold',
+                        size: 16
+                    }
+                }
             }
         }
     }
-};
-
-new Chart(
-    document.getElementById('thisYearEvaluation'),
-    config_yearly
 );
 }
