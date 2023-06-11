@@ -29,14 +29,35 @@ class EmployeeEvaluationController extends Controller
     public function perofrmance()
     {
         // Get All Employee
-        $employees = EmployeeEvaluation::where('score', EmployeeEvaluation::SCORE_VERY_GOOD)->get()->groupBy('employee_id');
+        $employees = EmployeeEvaluation::get()->groupBy('employee_id');
 
         // Preparing List
         $person_andscore = [];
         foreach($employees as $employee)
         {
+            $score = 0;
+
+            // Scoring For Each People
+            foreach($employee as $result){
+                if($result->score == EmployeeEvaluation::SCORE_VERY_GOOD)
+                {
+                    $score += 5;
+                }elseif($result->score == EmployeeEvaluation::SCORE_GOOD)
+                {
+                    $score += 4;
+                }elseif($result->score == EmployeeEvaluation::SCORE_NOT_BAD)
+                {
+                    $score += 3;
+                }elseif($result->score == EmployeeEvaluation::SCORE_BAD)
+                {
+                    $score += 2;
+                }else{
+                    $score += 1;
+                }
+            }
+
             // Label and Score
-            $person_andscore[$employee[0]->employer->name] = count($employee);
+            $person_andscore[$employee[0]->employer->name] = $score;
         }
 
         // Sorting Array
