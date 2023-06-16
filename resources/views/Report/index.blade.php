@@ -9,7 +9,7 @@
         <h1 class="text-center mb-4">Hasil Penilaian</h1>
 
         {{-- Buttons --}}
-        <a class="btn btn-danger" href="/admin/employee">{{ __('PDF') }}</a>
+        <a class="btn btn-danger" href="/admin/report/pdf" target="_blank">{{ __('PDF') }}</a>
         <a class="btn btn-success" href="/admin/employee">{{ __('Excel') }}</a>
 
         {{-- Employee Table --}}

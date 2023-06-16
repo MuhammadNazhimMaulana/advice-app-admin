@@ -91,6 +91,6 @@ class EmployeeController extends Controller
         ])->setpaper('A4', 'portrait');
 
         // Showing The pdf
-        return $pdf->stream('List Manifest.pdf');
+        return $pdf->stream('QR Loket.pdf');
     }
 }

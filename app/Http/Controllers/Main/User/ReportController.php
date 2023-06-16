@@ -25,4 +25,18 @@ class ReportController extends Controller
 
         return view('Report/index', $data); 
     }
+
+    public function pdf()
+    {
+        // Finding employee
+        $employee_evals = EmployeeEvaluation::get();
+
+        $pdf = Pdf::loadView('Report.pdf', [
+            'employee_evals' => $employee_evals,
+            'title' => 'Evaluasi Petugas Loket',
+        ])->setpaper('A4', 'portrait');
+
+        // Showing The pdf
+        return $pdf->stream('Daftar Penilaian.pdf');
+    }
 }
