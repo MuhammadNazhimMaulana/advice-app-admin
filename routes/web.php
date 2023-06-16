@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
         // Report
         Route::prefix('/report')->group(function () {
             Route::get('/', [ReportController::class, 'index']);
+            Route::get('/pdf', [ReportController::class, 'pdf']);
         });
 
         // Logout
