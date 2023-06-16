@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Main\DashboardController;
-use App\Http\Controllers\Main\User\{ProfileController, EmployeeController, EmployeeEvaluationController};
+use App\Http\Controllers\Main\User\{ProfileController, EmployeeController, EmployeeEvaluationController, ReportController};
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +53,11 @@ Route::middleware('auth')->group(function () {
         // Performance
         Route::prefix('/employee-performance')->group(function () {
             Route::get('/', [EmployeeEvaluationController::class, 'perofrmance']);
+        });
+
+        // Report
+        Route::prefix('/report')->group(function () {
+            Route::get('/', [ReportController::class, 'index']);
         });
 
         // Logout
