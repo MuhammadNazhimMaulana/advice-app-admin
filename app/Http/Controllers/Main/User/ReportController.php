@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Main\User;
 
 use App\Http\Controllers\Controller;
+use App\Exports\ReportExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\{Employee, EmployeeEvaluation};
+use Maatwebsite\Excel\Facades\Excel;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReportController extends Controller
@@ -39,4 +41,9 @@ class ReportController extends Controller
         // Showing The pdf
         return $pdf->stream('Daftar Penilaian.pdf');
     }
+
+	public function excel()
+	{
+		return Excel::download(new ReportExport, 'Laporan Penilaian Pelanggan.xlsx');
+	}
 }

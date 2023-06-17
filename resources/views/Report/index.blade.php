@@ -10,7 +10,7 @@
 
         {{-- Buttons --}}
         <a class="btn btn-danger" href="/admin/report/pdf" target="_blank">{{ __('PDF') }}</a>
-        <a class="btn btn-success" href="/admin/employee">{{ __('Excel') }}</a>
+        <a class="btn btn-success" href="/admin/report/excel">{{ __('Excel') }}</a>
 
         {{-- Employee Table --}}
         <table class="table mt-4 text-center">
