@@ -62,7 +62,7 @@ class ReportExport implements FromCollection, WithHeadings, WithMapping, WithEve
                                 ->getAlignment()
                                 ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER); 
                                 
-                                
+                // Array For style 
                 $styleArray = [
                     'borders' => [
                         'outline' => [
