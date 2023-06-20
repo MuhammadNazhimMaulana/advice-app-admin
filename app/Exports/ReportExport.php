@@ -35,10 +35,13 @@ class ReportExport implements FromCollection, WithHeadings, WithMapping, WithEve
     public function headings(): array
     {
         return [
+            ['Daftar Hasil Penilaian Kepuasan Pelanggan'],
+            [
             'No.',
             'Nama',
             'Skor',
             'Kritik/Saran',
+            ]
         ];
     }
 
@@ -52,6 +55,8 @@ class ReportExport implements FromCollection, WithHeadings, WithMapping, WithEve
         return [
             AfterSheet::class => function(AfterSheet $event) {
                 
+                $event->sheet->getDelegate()->mergeCells('A1:D1');
+
                 // Centering
                 $event->sheet->getDelegate()->getStyle('B1:D1')
                                 ->getAlignment()
@@ -75,7 +80,7 @@ class ReportExport implements FromCollection, WithHeadings, WithMapping, WithEve
                 // Give Color in each column
                 foreach(range('A','D') as $alphabet){
                     
-                    for($i = 1; $i <= $event->sheet->getDelegate()->getHighestRow(); $i++){
+                    for($i = 2; $i <= $event->sheet->getDelegate()->getHighestRow(); $i++){
                         $event->sheet->getDelegate()->getStyle($alphabet.$i.':'.$alphabet.$i)->applyFromArray($styleArray);
                     }
                 }
