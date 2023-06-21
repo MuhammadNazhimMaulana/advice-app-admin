@@ -44,4 +44,51 @@ $(document).ready(function(){
         // console.log($('#qr_link').attr('href'))
     });
 
+    // Send Ajax
+    $('#update_performance').on('change', function(event){
+        event.preventDefault();
+
+        // Url
+        let url = $('#update_performance').attr('data-action');
+
+        // let month_name = $('#performance_months').find(":selected").val();
+
+        $.ajax({
+            url: url,
+            method: 'POST',
+            data: new FormData(this),
+            dataType: 'JSON',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success:function(response)
+            {
+                // Start Row
+                let row = '<tbody>';
+
+                // let table = $('#performance-table .replacement').parent();
+                for(i = 0; i < response.people.length; i++)
+                {
+                    row += `<tr class="replacement">
+                                <th scope="row">${i + 1}</th>
+                                <td>${response.people[i]}</td>
+                                <td>${response.scores[i]}</td>
+                            </tr>`
+                }
+
+                // Close Row
+                row += '</tbody>';
+
+                // Update Value
+                $('#performance-table .replacement').parent().replaceWith(row);
+
+                // console.log(response.people.length)
+            },
+            error: function(response) {
+                console.log(response)
+            }
+        });
+
+    });
+
 });
