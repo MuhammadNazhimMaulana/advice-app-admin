@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function () {
         // Performance
         Route::prefix('/employee-performance')->group(function () {
             Route::get('/', [EmployeeEvaluationController::class, 'perofrmance']);
+            Route::post('/change', [EmployeeEvaluationController::class, 'updatePerformance']);
         });
 
         // Report

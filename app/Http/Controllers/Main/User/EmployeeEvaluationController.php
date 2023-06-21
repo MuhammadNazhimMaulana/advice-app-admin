@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\EmployeeEvaluation\StoreRequest;
 use App\Models\{EmployeeEvaluation, Employee};
+use Carbon\Carbon;
 
 class EmployeeEvaluationController extends Controller
 {
@@ -26,11 +27,55 @@ class EmployeeEvaluationController extends Controller
         ]);      
     }
 
+    // View Performance
     public function perofrmance()
     {
-        // Get All Employee
-        $employees = EmployeeEvaluation::get()->groupBy('employee_id');
+        // Data
+        $eval = new EmployeeEvaluation;
 
+        // Get All Employee
+        $employees = $eval->whereMonth('created_at', Carbon::now()->month)->get()->groupBy('employee_id');
+
+        // Returning Months
+        $group_months = $eval->get()->groupBy(function ($q) {
+            return Carbon::parse($q->created_at)->format('F');
+        })->toArray();
+
+        // Getting LIst
+        $person_andscore = $this->getScore($employees);
+
+        $data = [
+            'people' => array_keys($person_andscore),
+            'scores' => array_values($person_andscore),
+            'months' => array_keys($group_months),
+            'title' => 'Performance',
+        ];
+
+        return view('Employee/performance', $data);          
+    }
+
+    // Api For Ajax
+    public function updatePerformance(Request $request)
+    {
+        // Data
+        $eval = EmployeeEvaluation::query();
+
+        // Get All Employee
+        $employees = $eval->whereMonth('created_at', Carbon::parse($request->months)->month)->get()->groupBy('employee_id');  
+        
+        // Getting LIst
+        $person_andscore = $this->getScore($employees);
+
+        return response()->json([
+            'success'=>'Data is successfully retrieved',
+            'people' => array_keys($person_andscore),
+            'scores' => array_values($person_andscore)
+        ]);
+    }
+
+    /** @return array  */
+    private function getScore($employees): array
+    {
         // Preparing List
         $person_andscore = [];
         foreach($employees as $employee)
@@ -63,12 +108,6 @@ class EmployeeEvaluationController extends Controller
         // Sorting Array
         arsort($person_andscore);
 
-        $data = [
-            'people' => array_keys($person_andscore),
-            'scores' => array_values($person_andscore),
-            'title' => 'Performance',
-        ];
-
-        return view('Employee/performance', $data);          
+        return $person_andscore;
     }
 }
