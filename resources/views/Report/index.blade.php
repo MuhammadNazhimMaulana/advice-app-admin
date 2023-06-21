@@ -9,7 +9,7 @@
         <h1 class="text-center mb-4">Hasil Penilaian</h1>
 
         {{-- Buttons --}}
-        <button  type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exportPdfModal"><i class="fas fa-file-pdf"></i></button>
+        <button  type="button" class="ms-1 btn btn-danger" data-bs-toggle="modal" data-bs-target="#exportPdfModal"><i class="fas fa-file-pdf"></i></button>
         <button  type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exportExcelModal"><i class="fas fa-file-excel"></i></button>
 
         {{-- Employee Table --}}
