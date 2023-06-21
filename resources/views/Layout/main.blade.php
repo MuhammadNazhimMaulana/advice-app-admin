@@ -14,6 +14,9 @@
     <!-- Bootstrap CSS -->
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
+    {{-- Flatpickr CSS --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
     <title>Admin Aplikasi Penilaian Kepuasan Pelanggan</title>
   </head>
   <body>
@@ -46,7 +49,10 @@
 
     {{-- Custom JS --}}
     <script src="{{ asset('JS/main.js') }}"></script>
-
+    
+    {{-- Flatpickr JS --}}
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
     {{-- Content --}} 
     @yield('script')
   </body>
