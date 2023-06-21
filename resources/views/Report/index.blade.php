@@ -25,7 +25,7 @@
             <tbody>
             @for ($i = 0; $i < count($comments); $i++)
                 <tr>
-                    <th scope="row">{{ $i + 1}}</th>
+                    <th scope="row">{{ ($comments->currentpage()-1)*$comments->perpage() + 1 + $i}}</th>
                     <td>{{ $comments[$i]->employer->name }}</td>
                     <td>{{ $comments[$i]->score }}</td>
                     <td>{{ $comments[$i]->advice == null ? __('Tidak ada komentar') : $comments[$i]->advice }}</td>
@@ -33,6 +33,11 @@
             @endfor
             </tbody>
           </table>
+    </div>
+
+    {{-- Pagination --}}
+    <div class="d-flex justify-content-center w-100">
+      {{ $comments->links() }}
     </div>
 </div>
 
