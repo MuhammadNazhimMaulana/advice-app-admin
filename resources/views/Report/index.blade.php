@@ -10,7 +10,7 @@
 
         {{-- Buttons --}}
         <button  type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exportPdfModal"><i class="fas fa-file-pdf"></i></button>
-        <a class="btn btn-success" href="/admin/report/excel"><i class="fas fa-file-excel"></i></a>
+        <button  type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exportExcelModal"><i class="fas fa-file-excel"></i></button>
 
         {{-- Employee Table --}}
         <table class="table mt-4 text-center">
@@ -43,6 +43,7 @@
 
 {{-- Modals --}}
 @include('Report.modals.exportpdf')
+@include('Report.modals.exportexcel')
 
 @section('script')
     <script src="{{ asset('/JS/report.js') }}"></script>

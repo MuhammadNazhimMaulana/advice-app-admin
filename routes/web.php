@@ -59,7 +59,7 @@ Route::middleware('auth')->group(function () {
         Route::prefix('/report')->group(function () {
             Route::get('/', [ReportController::class, 'index']);
             Route::post('/pdf', [ReportController::class, 'pdf']);
-            Route::get('/excel', [ReportController::class, 'excel']);
+            Route::post('/excel', [ReportController::class, 'excel']);
         });
 
         // Logout
