@@ -9,7 +9,7 @@
         <h1 class="text-center mb-4">Hasil Penilaian</h1>
 
         {{-- Buttons --}}
-        <a class="btn btn-danger" href="/admin/report/pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+        <button  type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exportPdfModal"><i class="fas fa-file-pdf"></i></button>
         <a class="btn btn-success" href="/admin/report/excel"><i class="fas fa-file-excel"></i></a>
 
         {{-- Employee Table --}}
@@ -41,5 +41,11 @@
     </div>
 </div>
 
+{{-- Modals --}}
+@include('Report.modals.exportpdf')
+
+@section('script')
+    <script src="{{ asset('/JS/report.js') }}"></script>
+@endsection
 
 @endsection

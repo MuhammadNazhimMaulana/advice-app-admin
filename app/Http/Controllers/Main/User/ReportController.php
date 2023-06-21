@@ -28,10 +28,12 @@ class ReportController extends Controller
         return view('Report/index', $data); 
     }
 
-    public function pdf()
+    public function pdf(Request $request)
     {
+        $dates = explode(' to ', $request->date_pdf);
+
         // Finding employee
-        $employee_evals = EmployeeEvaluation::get();
+        $employee_evals = EmployeeEvaluation::whereBetween('created_at', $dates)->get();
 
         $pdf = Pdf::loadView('Report.pdf', [
             'employee_evals' => $employee_evals,
