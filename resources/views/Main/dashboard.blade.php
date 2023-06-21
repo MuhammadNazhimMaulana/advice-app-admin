@@ -50,7 +50,11 @@
 
         {{-- Words --}}
         <div style="width: 100%; text-align: justify;">
-            {{ __('Diagram diatas menunjukkan hasil penilaian terhadap loket selama satu bulan ini dan juga tahun ini') }}
+            <p>{{ __('Diagram diatas menunjukkan hasil penilaian terhadap loket selama satu bulan ini dan juga tahun ini. Untuk mengunduh laporan silakan klik menu laporan atau klik tombol dibawah ini') }}</p>
+            
+            <div class="text-center">
+                <a href="/admin/report" class="btn btn-primary">{{ __('Report') }}</a>
+            </div>
         </div>
     </div>
 </div>
