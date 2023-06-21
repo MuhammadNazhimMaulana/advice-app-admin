@@ -30,10 +30,17 @@ class ReportController extends Controller
 
     public function pdf(Request $request)
     {
+        // Prepare Date
         $dates = explode(' to ', $request->date_pdf);
 
-        // Finding employee
-        $employee_evals = EmployeeEvaluation::whereBetween('created_at', $dates)->get();
+        if(count($dates) == 2)
+        {
+            // Finding employee
+            $employee_evals = EmployeeEvaluation::whereBetween('created_at', $dates)->get();
+        }else{
+            // Finding employee
+            $employee_evals = EmployeeEvaluation::whereDate('created_at', $dates[0])->get();
+        }
 
         $pdf = Pdf::loadView('Report.pdf', [
             'employee_evals' => $employee_evals,
@@ -44,8 +51,11 @@ class ReportController extends Controller
         return $pdf->stream('Daftar Penilaian.pdf');
     }
 
-	public function excel()
+	public function excel(Request $request)
 	{
-		return Excel::download(new ReportExport, 'Laporan Penilaian Pelanggan.xlsx');
+        // Prepare Date
+        $dates = explode(' to ', $request->date_excel);
+
+		return Excel::download(new ReportExport($dates), 'Laporan Penilaian Pelanggan.xlsx');
 	}
 }

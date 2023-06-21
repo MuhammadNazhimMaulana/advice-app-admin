@@ -9,12 +9,27 @@ use Maatwebsite\Excel\Events\AfterSheet;
 
 class ReportExport implements FromCollection, WithHeadings, WithMapping, WithEvents, ShouldAutoSize
 {
+    protected $dates;
+
+    function __construct($dates) {
+        $this->dates = $dates;
+    }
+ 
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return EmployeeEvaluation::all();
+        
+        if(count($this->dates) == 2)
+        {
+            // 2 Dates
+            return EmployeeEvaluation::whereBetween('created_at', $this->dates)->get();
+        }else{
+            // Only One Date
+            return EmployeeEvaluation::whereDate('created_at', $this->dates[0])->get();
+        }
+
     }
 
     // Mapping Dara
