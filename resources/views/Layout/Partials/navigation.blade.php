@@ -9,7 +9,7 @@
   </div>
 
   <div class="profile">
-    <a href="/admin/profile"><img src="{{ asset('Images/Default_User.png') }}" class="border border-dark"></a>
+    <a href="/admin/profile"><img src="{{ asset('images/Default_User.png') }}" class="border border-dark"></a>
     @auth
       <form action="/admin/logout" method="POST">
         @csrf
