@@ -22,12 +22,12 @@
   <body>
 
     {{-- Sidebar --}}
-    @include('Layout/partials.sidebar')
+    @include('Layout/Partials.sidebar')
     
     <section id="interface">
       <div class="navigation">
         {{-- Navigation --}}
-        @include('Layout/partials.navigation')
+        @include('Layout/Partials.navigation')
       </div>
 
       <h3 class="i-name">
