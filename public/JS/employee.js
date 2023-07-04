@@ -69,9 +69,15 @@ $(document).ready(function(){
                 // let table = $('#performance-table .replacement').parent();
                 for(i = 0; i < response.people.length; i++)
                 {
+
                     row += `<tr class="replacement">
                                 <th scope="row">${i + 1}</th>
                                 <td>${response.people[i]}</td>
+                                <td>${response.people[i].toLowerCase()+'_kriminal' in response.detail ? response.detail[response.people[i].toLowerCase()+'_kriminal'] : 0}</td>
+                                <td>${response.people[i].toLowerCase()+'_tidak_puas' in response.detail ? response.detail[response.people[i].toLowerCase()+'_tidak_puas'] : 0}</td>
+                                <td>${response.people[i].toLowerCase()+'_sesuai_janji' in response.detail ? response.detail[response.people[i].toLowerCase()+'_sesuai_janji'] : 0}</td>
+                                <td>${response.people[i].toLowerCase()+'_memuaskan' in response.detail ? response.detail[response.people[i].toLowerCase()+'_memuaskan'] : 0}</td>
+                                <td>${response.people[i].toLowerCase()+'_recommended' in response.detail ? response.detail[response.people[i].toLowerCase()+'_recommended'] : 0}</td>
                                 <td>${response.scores[i]}</td>
                             </tr>`
                 }
