@@ -44,10 +44,14 @@ class EmployeeEvaluationController extends Controller
         // Getting LIst
         $person_andscore = $this->getScore($employees);
 
+        // Getting LIst Detail
+        $score_detail = $this->getScoreDetail($employees);
+
         $data = [
             'people' => array_keys($person_andscore),
             'scores' => array_values($person_andscore),
             'months' => array_keys($group_months),
+            'detail' => $score_detail,
             'title' => 'Performance',
         ];
 
@@ -66,10 +70,14 @@ class EmployeeEvaluationController extends Controller
         // Getting LIst
         $person_andscore = $this->getScore($employees);
 
+        // Getting LIst Detail
+        $score_detail = $this->getScoreDetail($employees);
+
         return response()->json([
             'success'=>'Data is successfully retrieved',
             'people' => array_keys($person_andscore),
-            'scores' => array_values($person_andscore)
+            'scores' => array_values($person_andscore),
+            'detail' => $score_detail,
         ]);
     }
 
@@ -109,5 +117,27 @@ class EmployeeEvaluationController extends Controller
         arsort($person_andscore);
 
         return $person_andscore;
+    }
+
+    /** @return array  */
+    private function getScoreDetail($employees): array
+    {
+        // Full list
+        $full_list = [];
+        foreach($employees as $employee)
+        {
+            foreach($employee as $result){
+                if (array_key_exists(strtolower($result->employer->name).'_'.str_replace(' ', '_', $result->score),$full_list))
+                {
+                    $full_list[strtolower($result->employer->name).'_'.str_replace(' ', '_', $result->score)] += 1;
+                }
+                else
+                {
+                    $full_list[strtolower($result->employer->name).'_'.str_replace(' ', '_', $result->score)] = 1;
+                }
+            }
+        }
+        
+        return $full_list;
     }
 }
